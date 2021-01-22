@@ -7,3 +7,5 @@ For example some anti-malware software if you're often helping people clean thei
 or some archiving utility.
 
 The password protection is only so that automated services don't find download links on my website that could lead to it getting marked as a pirating resource.
+
+![Screenshot](/files/screenshot.png)
