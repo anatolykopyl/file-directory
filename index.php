@@ -79,7 +79,7 @@
                   $filesize = number_format($filesize, 2, ",", " ") . $msr;
                 }
                 
-                echo "<span class='list-group-item list-group-item-action border border-secondary p-2" . $clr . "' data-file='" . urlencode($filename) . "'><span class='row d-flex justify-content-between align-items-center'><a class='col-10 row text-decoration-none' ";
+                echo "<span class='list-group-item list-group-item-action border border-secondary p-2" . $clr . "' data-file='" . urlencode($filename) . "'><span class='row mx-0 d-flex justify-content-between align-items-center'><a class='col-10 row text-decoration-none' ";
                 echo "download href='files/" . $filename . "'><span class='col-5'>" . $filename;
 
                 echo "</span><span class='col-4 text-secondary'>" . $filesize . "</span></a>";
