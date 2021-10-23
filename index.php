@@ -103,7 +103,7 @@
                   $filesize = number_format($filesize, 2, ",", " ") . $msr;
                 }
                 
-                echo "<span class='list-group-item list-group-item-action border border-secondary p-2" . $clr . "'><span class='row d-flex justify-content-between align-items-center'><a class='col-11 row text-decoration-none' ";
+                echo "<span class='list-group-item list-group-item-action border border-secondary p-2" . $clr . "'><span class='row d-flex justify-content-between align-items-center'><a class='col-10 row text-decoration-none' ";
 
                 if ($ext == "private") {
                   if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true) {
@@ -130,7 +130,6 @@
                     echo "<span class='col-1'></span>\n";
                   }
                   echo "<div class='collapse container-fluid border-top border-secondary text-center m-2' id='collapse-" . $filetag . "'><img class='border mt-3' src='files/" . $filename . "'></div>\n";
-                  echo "</span></span>\n";
                 } else {
                   if ($ext == "mp4") {
                     echo "<a class='col-1 text-decoration-none text-center my-n3 p-2 border-left border-secondary d-none d-lg-block' href='files/" . $filename . "'>📼</a>";
@@ -142,8 +141,9 @@
                   if ($clr == " list-group-item-warning") {
                     echo "<div class='collapse container-fluid border-top border-secondary text-center m-2' id='collapse-" . $filetag . "'><img class='border mt-3' src='files/" . $filename . "'></div>\n";
                   }
-                  echo "</span></span>\n";
                 }
+                echo "<span class='col-1 border-secondary my-n3 delete-button' data-file=" . $filename . ">🗑</span>";
+                echo "</span></span>\n";
               }
             }
             closedir($dh);
