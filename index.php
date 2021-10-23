@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
 
-	<link rel="shortcut icon" type="image/png" href="/favicon-32x32.png"/>
+	  <link rel="shortcut icon" type="image/png" href="/favicon-32x32.png"/>
     <title>radner.ru</title>
   </head>
   <body>
