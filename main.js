@@ -1,7 +1,3 @@
-$(document).on('click', 'div.dropdown-menu', function (e) {
-    e.stopPropagation();
-});
-
 const buttons = document.querySelectorAll('.delete-button')
 buttons.forEach((button) => {
     button.addEventListener("click", async function (event) {
@@ -13,6 +9,10 @@ buttons.forEach((button) => {
             },
             body: `file=${event.target.dataset.file}`
         });
+        if (response.status === 200) {
+            const deletedRow = document.querySelector(`.list-group-item[data-file='${event.target.dataset.file}']`);
+            deletedRow.remove();
+        }
     })
 });
 
@@ -21,5 +21,8 @@ fileInput.addEventListener('change', async function (event) {
     const file = event.target.files[0];
     let formData = new FormData();
     formData.append("file", file);
-    fetch('upload.php', { method: "POST", body: formData });
+    const response = await fetch('upload.php', { method: "POST", body: formData });
+    if (response.status === 200) {
+        window.location.reload(false);
+    }
 });

@@ -79,46 +79,22 @@
                   $filesize = number_format($filesize, 2, ",", " ") . $msr;
                 }
                 
-                echo "<span class='list-group-item list-group-item-action border border-secondary p-2" . $clr . "'><span class='row d-flex justify-content-between align-items-center'><a class='col-10 row text-decoration-none' ";
+                echo "<span class='list-group-item list-group-item-action border border-secondary p-2" . $clr . "' data-file='" . urlencode($filename) . "'><span class='row d-flex justify-content-between align-items-center'><a class='col-10 row text-decoration-none' ";
+                echo "download href='files/" . $filename . "'><span class='col-5'>" . $filename;
 
-                if ($ext == "private") {
-                  if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true) {
-                    echo "download='" . pathinfo($filename, PATHINFO_FILENAME) . "' href='files/" . $filename . "'><span class='col-5'>" . pathinfo($filename, PATHINFO_FILENAME);
-                  } else {
-                    echo "><span class='col-5 text-muted'>" . pathinfo($filename, PATHINFO_FILENAME);
-                  }
+                echo "</span><span class='col-4 text-secondary'>" . $filesize . "</span></a>";
+
+                if ($ext == "mp4") {
+                  echo "<a class='col-1 text-decoration-none text-center my-n3 p-2 border-left border-secondary d-none d-lg-block' href='files/" . $filename . "'>📼</a>";
+                } elseif ($clr == " list-group-item-warning") {
+                  echo "<a class='col-1 text-decoration-none text-center my-n3 p-2 border-left border-secondary my-n3 d-none d-lg-block' data-toggle='collapse' data-target='#collapse-" . $filetag . "'>🖼️</a>";
                 } else {
-                  echo "download href='files/" . $filename . "'><span class='col-5'>" . $filename;
+                  echo "<span class='col-1'></span>\n";
                 }
 
-                echo "</span><span class='col-4 text-secondary'>" . $filesize . "</span>";
-                if ($ext == "private" && !(isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true)) {
-                  echo "<span class='col text-secondary text-right'>Требуется авторизация</span>";
-                }
-                echo "</a>";
-
-                if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true) {
-                  if ($ext == "mp4") {
-                    echo "<a class='col-1 text-decoration-none text-center my-n3 p-2 border-left border-secondary d-none d-lg-block' href='files/" . $filename . "'>📼</a>";
-                  } elseif ($clr == " list-group-item-warning") {
-                    echo "<a class='col-1 text-decoration-none text-center my-n3 p-2 border-left border-secondary my-n3 d-none d-lg-block' data-toggle='collapse' data-target='#collapse-" . $filetag . "'>🖼️</a>";
-                  } else {
-                    echo "<span class='col-1'></span>\n";
-                  }
-                  echo "<div class='collapse container-fluid border-top border-secondary text-center m-2' id='collapse-" . $filetag . "'><img class='border mt-3' src='files/" . $filename . "'></div>\n";
-                } else {
-                  if ($ext == "mp4") {
-                    echo "<a class='col-1 text-decoration-none text-center my-n3 p-2 border-left border-secondary d-none d-lg-block' href='files/" . $filename . "'>📼</a>";
-                  } elseif ($clr == " list-group-item-warning") {
-                    echo "<a class='col-1 text-decoration-none text-center my-n3 p-2 border-left border-secondary my-n3 d-none d-lg-block' data-toggle='collapse' data-target='#collapse-" . $filetag . "'>🖼️</a>";
-                  } else {
-                    echo "<span class='col-1'></span>\n";
-                  }
-                  if ($clr == " list-group-item-warning") {
-                    echo "<div class='collapse container-fluid border-top border-secondary text-center m-2' id='collapse-" . $filetag . "'><img class='border mt-3' src='files/" . $filename . "'></div>\n";
-                  }
-                }
                 echo "<span class='col-1 border-secondary my-n3 delete-button' data-file=" . urlencode($filename) . ">🗑</span>";
+
+                echo "<div class='collapse container-fluid border-top border-secondary text-center m-2' id='collapse-" . $filetag . "'><img class='border mt-3' src='files/" . $filename . "'></div>\n";
                 echo "</span></span>\n";
               }
             }
