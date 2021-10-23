@@ -14,39 +14,15 @@
   <body>
     <div class="container">
       <div class="row my-5">
-        <h1 class="col">Загрузки: &#128229 </h1>
-        <div class="col text-right">
-          <?php
-            session_start();
-            //session_unset();
-
-            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-              echo '<p class="mt-3">Авторизован</p>';
-            } else {
-              echo '<button class="btn btn-light mt-2" data-toggle="dropdown">Авторизоваться </button>
-                <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left w-50">
-                  <form class="px-4 py-3" method="post" action="login.php">
-                    <div class="form-group">
-                      <label for="password">Пароль</label>
-                      <input type="password" class="form-control" name="password" placeholder="Password">
-                    </div>
-                    <input type="submit" class="btn btn-primary col-auto" value="Войти">
-                    <a class="col-auto" data-toggle="collapse" href="#collapseGetPass" role="button">Узнать пароль</a>
-                  </form>
-                    <div class="collapse" id="collapseGetPass">
-                      <form class="px-4 py-3" method="post" action="sendpass.php">
-                        <div class="form-group">
-                          <label for="inputEmail">На какой адрес выслать пароль</label>
-                          <input type="email" class="form-control" name="inputEmail" placeholder="Введите почту">
-                        </div>
-                        <input type="submit" class="btn btn-primary col-auto" value="Отправить">
-                      </form>
-                    </div>
-                </div>';
-            }
-          ?>
-        </div>
+        <h1 class="col">Файлы: &#128229 </h1>
       </div>
+
+      <label for="upload" class="w-100">
+        <div class="shadow rounded card-block m-5 border p-5 text-center">
+          Drop files here to upload
+        </div>
+      </label>
+      <input id="upload" type="file" class="d-none">
 
       <div class="list-group shadow rounded">
         <?php
@@ -142,7 +118,7 @@
                     echo "<div class='collapse container-fluid border-top border-secondary text-center m-2' id='collapse-" . $filetag . "'><img class='border mt-3' src='files/" . $filename . "'></div>\n";
                   }
                 }
-                echo "<span class='col-1 border-secondary my-n3 delete-button' data-file=" . $filename . ">🗑</span>";
+                echo "<span class='col-1 border-secondary my-n3 delete-button' data-file=" . urlencode($filename) . ">🗑</span>";
                 echo "</span></span>\n";
               }
             }
