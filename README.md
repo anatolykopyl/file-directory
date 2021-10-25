@@ -1,4 +1,6 @@
 # file-directory
+A version with upload/delete capabilities is availible on the [`offline`](https://github.com/anatolykopyl/file-directory/tree/offline) branch
+
 A website I use to access some files on my home server.
 It lists all files in the `files` directory and those that have the extension `.private` will be password protected.
 
