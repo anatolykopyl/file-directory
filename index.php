@@ -23,6 +23,10 @@
         </div>
       </label>
       <input id="upload" type="file" class="d-none">
+      <div class="progress">
+        <div id="progress" class="progress-bar d-none" role="progressbar"></div>
+      </div>
+
 
       <div class="list-group shadow rounded">
         <?php
@@ -105,7 +109,8 @@
 
       <br><br>
     </div>
-
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="jquery-3.6.0.min.js"></script>
