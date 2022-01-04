@@ -23,8 +23,8 @@
         </div>
       </label>
       <input id="upload" type="file" class="d-none">
-      <div class="progress d-none mb-5" id="progress">
-        <div class="progress-bar" role="progressbar"></div>
+      <div class="progress mb-5" id="progress" style="display: none;">
+        <div class="progress-bar" role="progressbar" style="height: 100%;"></div>
       </div>
 
 
