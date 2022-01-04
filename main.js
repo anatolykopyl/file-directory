@@ -22,10 +22,6 @@ fileInput.addEventListener('change', async function (event) {
     const file = event.target.files[0];
     let formData = new FormData();
     formData.append("file", file);
-    // const response = await fetch('upload.php', { method: "POST", body: formData });
-    // if (response.status === 200) {
-    //     window.location.reload(false);
-    // }
     axios.request({
         method: "post",
         url: "upload.php", 
@@ -33,7 +29,7 @@ fileInput.addEventListener('change', async function (event) {
         headers: { "Content-Type": "multipart/form-data" },
         onUploadProgress: (p) => {
             progressBar.style.display = 'block';
-            progressBar.style.width = `${p.loaded / p.total}%`;
+            progressBar.children[0].style.width = `${p.loaded / p.total}%`;
         }
     }).then (data => {
         window.location.reload(false);
