@@ -18,7 +18,7 @@
       </div>
 
       <label for="upload" class="w-100">
-        <div class="shadow rounded card-block m-5 border p-5 text-center">
+        <div class="shadow rounded card-block m-5 border p-5 text-center" role="button">
           Drop files here to upload
         </div>
       </label>
@@ -92,7 +92,7 @@
                   echo "<span class='col-1'></span>\n";
                 }
 
-                echo "<span class='col-1 border-secondary my-n3 delete-button' data-file=" . urlencode($filename) . ">🗑</span>";
+                echo "<span class='col-1 border-secondary my-n3 delete-button' role='button' data-file=" . urlencode($filename) . ">🗑</span>";
 
                 echo "<div class='collapse container-fluid border-top border-secondary text-center m-2' id='collapse-" . $filetag . "'><img class='border mt-3' src='files/" . $filename . "'></div>\n";
                 echo "</span></span>\n";
